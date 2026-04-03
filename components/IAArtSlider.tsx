@@ -22,11 +22,11 @@ export default function IAArtSlider() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full py-32 bg-[#050505] border-t border-white/5 overflow-hidden"
+      className="relative w-full py-16 md:py-32 bg-[#050505] border-t border-white/5 overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03]" />
 
-      <div className="container mx-auto px-6 md:px-12 mb-16 relative z-10">
+      <div className="container mx-auto px-6 md:px-12 mb-8 md:mb-16 relative z-10">
         <motion.div style={{ y, opacity }} className="absolute -top-32 -left-20 pointer-events-none">
           <h2 className="text-[200px] font-black text-white/[0.02] tracking-tighter uppercase whitespace-nowrap hidden md:block">
             Generative

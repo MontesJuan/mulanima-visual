@@ -233,7 +233,7 @@ const Logo = ({ small = false }: LogoProps) => {
       ref={logoRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`relative flex items-center justify-center cursor-pointer transition-all duration-700 ${small ? 'w-20 h-20' : 'w-[650px] h-[650px]'}`}
+      className={`relative flex items-center justify-center cursor-pointer transition-all duration-700 ${small ? 'w-20 h-20' : 'w-[min(100vw-2rem,650px)] h-[min(100vw-2rem,650px)]'}`}
       style={{
         perspective: '1200px'
       }}
@@ -241,8 +241,8 @@ const Logo = ({ small = false }: LogoProps) => {
       <div 
         className="w-full h-full relative transition-transform duration-500 ease-out flex items-center justify-center"
         style={{
-          width: !small ? '650px' : '100px',
-          height: !small ? '650px' : '100px',
+          width: !small ? 'min(100vw - 2rem, 650px)' : '100px',
+          height: !small ? 'min(100vw - 2rem, 650px)' : '100px',
           transform: !small ? `rotateY(${mousePos.x}deg) rotateX(${-mousePos.y}deg) scale(1)` : 'scale(1)',
           transformStyle: 'preserve-3d'
         }}
@@ -598,7 +598,7 @@ export default function App() {
           <Logo small={false} />
         </div>
         {/* Ambient Light Behind Logo */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 blur-[200px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(100vw,600px)] h-[min(100vw,600px)] bg-white/5 blur-[100px] md:blur-[200px] rounded-full pointer-events-none" />
         
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-none opacity-50">
@@ -615,7 +615,7 @@ export default function App() {
       <IAArtSlider />
 
       {/* ABOUT SECTION (RE-DESIGNED) */}
-      <section id="about" className="py-48 relative z-10 border-t border-white/5 bg-black">
+      <section id="about" className="py-24 md:py-48 relative z-10 border-t border-white/5 bg-black">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             
