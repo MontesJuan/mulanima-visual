@@ -239,8 +239,8 @@ const Logo = ({ small = false }: LogoProps) => {
       <div 
         className="w-full h-full relative transition-transform duration-500 ease-out"
         style={{
-          width: !small ? '600px' : '100px',
-          height: !small ? '600px' : '100px',
+          width: !small ? '650px' : '100px',
+          height: !small ? '650px' : '100px',
           transform: !small ? `rotateY(${mousePos.x}deg) rotateX(${-mousePos.y}deg) scale(1)` : 'scale(1)',
           transformStyle: 'preserve-3d'
         }}
@@ -578,7 +578,7 @@ export default function App() {
       `}</style>
 
       {/* HEADER LOGO */}
-      <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled || isMenuOpen ? 'py-4 bg-black/90 backdrop-blur-xl border-b border-white/5 opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}`}>
+      <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${scrolled || isMenuOpen ? 'py-4 bg-black/95 backdrop-blur-xl border-b border-white/5 opacity-100 translate-y-0' : 'opacity-0 -translate-y-10 pointer-events-none'}`}>
         <div className="container mx-auto px-6 md:px-12 flex justify-center items-center">
           <div
             className="relative z-50 transition-transform duration-500 hover:scale-105 cursor-pointer"
@@ -590,17 +590,17 @@ export default function App() {
       </header>
 
       {/* HERO SECTION - 3D LOGO CORE */}
-      <section id="home" className="relative h-[85vh] flex items-center justify-center overflow-hidden">
-        <div className={`z-30 relative transition-all duration-1000 ${scrolled ? 'opacity-0 scale-75 blur-2xl' : 'opacity-100 scale-100 blur-0'} transform-gpu hover:scale-110`}>
+      <section id="home" className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+        <div className={`z-30 relative transition-all duration-1000 ease-in-out ${scrolled ? 'opacity-0 -translate-y-48 scale-50 blur-2xl' : 'opacity-100 translate-y-0 scale-100 blur-0'} transform-gpu`}>
            <Logo />
         </div>
         
         {/* Abstract Cinematic Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-white/5 blur-[200px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/5 blur-[250px] rounded-full pointer-events-none" />
         
         {/* Indicator to Scroll */}
-        <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-opacity duration-700 ${scrolled ? 'opacity-0' : 'opacity-100'}`}>
-          <div className="w-px h-16 bg-gradient-to-b from-white/20 to-transparent" />
+        <div className={`absolute bottom-6 left-1/2 -translate-x-1/2 transition-opacity duration-700 ${scrolled ? 'opacity-0' : 'opacity-100'}`}>
+          <div className="w-px h-12 bg-gradient-to-b from-white/30 to-transparent animate-pulse" />
         </div>
       </section>
 
