@@ -581,26 +581,29 @@ export default function App() {
       {/* JFM SCROLLYTELLING SEQUENCE */}
       <JFMScroll />
 
-      {/* DYNAMIC HEADER - INTEGRATES 3D LOGO & SHRINKS ON SCROLL */}
-      <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-[800ms] ease-in-out flex flex-col items-center justify-center pointer-events-none ${scrolled || isMenuOpen ? 'h-24 bg-black/90 backdrop-blur-md border-b border-white/5' : 'h-[75vh] bg-transparent'}`}>
-        
-        {/* LOGO CONTAINER: Scales down proportionally to fit the shrinking header */}
+      {/* DYNAMIC HEADER - SLIM NAV WITH SMALL 3D LOGO */}
+      <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out flex flex-col items-center justify-center pointer-events-none ${scrolled || isMenuOpen ? 'h-24 bg-black/90 backdrop-blur-md border-b border-white/5' : 'h-32 bg-transparent'}`}>
         <div 
-          className={`pointer-events-auto relative z-50 transition-transform duration-[800ms] ease-in-out cursor-pointer origin-center flex items-center justify-center ${scrolled || isMenuOpen ? 'scale-[0.14]' : 'scale-100'}`}
+          className="pointer-events-auto cursor-pointer flex items-center justify-center transition-transform hover:scale-105"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          {/* Logo is kept at full 650px intrinsic size; CSS transforms handle the smooth shrinking */}
-          <Logo small={false} />
-        </div>
-
-        {/* Ambient Light Behind Logo (Fades away on scroll) */}
-        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 blur-[200px] rounded-full pointer-events-none transition-opacity duration-1000 ${scrolled ? 'opacity-0' : 'opacity-100'}`} />
-
-        {/* Scroll Indicator (Fades away on scroll) */}
-        <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-opacity duration-[800ms] ${scrolled ? 'opacity-0' : 'opacity-100'}`}>
-          <div className="w-px h-16 bg-gradient-to-b from-white/40 to-transparent animate-pulse" />
+          <Logo small={true} />
         </div>
       </header>
+
+      {/* INTERACTIVE 3D MODEL SECTION (Restored between scroll animation and video slider) */}
+      <div className="relative w-full h-screen bg-black flex items-center justify-center border-t border-white/5">
+        <div className="relative z-10 w-full flex justify-center pointer-events-auto">
+          <Logo small={false} />
+        </div>
+        {/* Ambient Light Behind Logo */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 blur-[200px] rounded-full pointer-events-none" />
+        
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-none opacity-50">
+          <div className="w-px h-16 bg-gradient-to-b from-white/40 to-transparent animate-pulse" />
+        </div>
+      </div>
 
       {/* BACKGROUND VIDEO SLIDER - Top element of the page, visible beneath the transparent header */}
       <div className="relative w-full min-h-screen">
