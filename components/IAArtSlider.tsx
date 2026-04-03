@@ -4,8 +4,7 @@ import { useScroll, useTransform, motion } from "framer-motion";
 
 const iaVideos = [
   { id: 1, src: "/videos/ia-art-1.mp4", title: "CEREBRA AI", description: "Experiment #01 - Neural Architecture" },
-  // { id: 2, src: "/videos/ia-art-2.mp4", title: "SYNTHESIS", description: "Experiment #02 - Liquid Metal" },
-  // { id: 3, src: "/videos/ia-art-3.mp4", title: "VOID", description: "Experiment #03 - Deep Dreams" },
+  { id: 2, src: "/videos/ia-art-2.mp4", title: "HG TRIBUTE", description: "Experiment #02 - Artificial Memory" },
 ];
 
 export default function IAArtSlider() {
