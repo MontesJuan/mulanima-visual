@@ -511,7 +511,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-[#050505] min-h-screen text-gray-200 font-sans selection:bg-amber-500/30 selection:text-amber-500 relative overflow-x-hidden">
+    <div className="bg-[#050505] min-h-screen text-gray-200 font-sans selection:bg-amber-500/30 selection:text-amber-500 relative">
 
       {/* BACKGROUND ANIMATION */}
       <div className="fixed inset-0 z-0">
