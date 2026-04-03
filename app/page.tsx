@@ -592,19 +592,6 @@ export default function App() {
         </div>
       </header>
 
-      {/* INTERACTIVE 3D MODEL SECTION (Restored between scroll animation and video slider) */}
-      <div className="relative w-full h-screen bg-black flex items-center justify-center border-t border-white/5">
-        <div className="relative z-10 w-full flex justify-center pointer-events-auto">
-          <Logo small={false} />
-        </div>
-        {/* Ambient Light Behind Logo */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(100vw,600px)] h-[min(100vw,600px)] bg-white/5 blur-[100px] md:blur-[200px] rounded-full pointer-events-none" />
-        
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-none opacity-50">
-          <div className="w-px h-16 bg-gradient-to-b from-white/40 to-transparent animate-pulse" />
-        </div>
-      </div>
 
       {/* BACKGROUND VIDEO SLIDER - Top element of the page, visible beneath the transparent header */}
       <div className="relative w-full min-h-screen">
