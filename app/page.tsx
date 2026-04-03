@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 
 import { SplineScene } from '../components/SplineScene';
+import JFMScroll from '../components/JFMScroll';
 
 // --- DATA MOCKS ---
 
@@ -576,6 +577,9 @@ export default function App() {
           color: white;
         }
       `}</style>
+
+      {/* JFM SCROLLYTELLING SEQUENCE */}
+      <JFMScroll />
 
       {/* DYNAMIC HEADER - INTEGRATES 3D LOGO & SHRINKS ON SCROLL */}
       <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-[800ms] ease-in-out flex flex-col items-center justify-center pointer-events-none ${scrolled || isMenuOpen ? 'h-24 bg-black/90 backdrop-blur-md border-b border-white/5' : 'h-[75vh] bg-transparent'}`}>
