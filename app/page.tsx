@@ -231,13 +231,13 @@ const Logo = ({ small = false }: LogoProps) => {
       ref={logoRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`relative flex items-center justify-center cursor-pointer transition-all duration-700 ${small ? 'w-20 h-20' : 'w-40 h-40 md:w-64 md:h-64'}`}
+      className={`relative flex items-center justify-center cursor-pointer transition-all duration-700 ${small ? 'w-20 h-20' : 'w-[650px] h-[650px]'}`}
       style={{
         perspective: '1200px'
       }}
     >
       <div 
-        className="w-full h-full relative transition-transform duration-500 ease-out"
+        className="w-full h-full relative transition-transform duration-500 ease-out flex items-center justify-center"
         style={{
           width: !small ? '650px' : '100px',
           height: !small ? '650px' : '100px',
