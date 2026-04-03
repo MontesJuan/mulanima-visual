@@ -51,7 +51,7 @@ export default function IAArtSlider() {
         {iaVideos.map((video) => (
           <div 
             key={video.id}
-            className="flex-shrink-0 w-[85vw] md:w-[60vw] lg:w-[45vw] aspect-[4/5] md:aspect-video relative group snap-center rounded-sm overflow-hidden bg-black border border-white/10"
+            className="flex-shrink-0 w-[80vw] md:w-[60vw] lg:w-[45vw] aspect-video md:aspect-video relative group snap-center rounded-sm overflow-hidden bg-black border border-white/10"
           >
             <video
               src={video.src}
@@ -63,11 +63,11 @@ export default function IAArtSlider() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
             
-            <div className="absolute bottom-0 left-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
-              <span className="text-[10px] text-white/50 uppercase tracking-[0.4em] mb-2 block">
+            <div className="absolute bottom-0 left-0 p-4 md:p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+              <span className="text-[8px] md:text-[10px] text-white/50 uppercase tracking-[0.4em] mb-1 md:mb-2 block">
                 {video.description}
               </span>
-              <h3 className="text-2xl text-white font-light uppercase tracking-widest">
+              <h3 className="text-lg md:text-2xl text-white font-light uppercase tracking-widest">
                 {video.title}
               </h3>
             </div>
@@ -78,7 +78,7 @@ export default function IAArtSlider() {
           </div>
         ))}
         {/* Placeholder for incoming videos */}
-        <div className="flex-shrink-0 w-[85vw] md:w-[60vw] lg:w-[45vw] aspect-[4/5] md:aspect-video relative group snap-center rounded-sm border border-dashed border-white/20 flex items-center justify-center bg-white/[0.01]">
+        <div className="flex-shrink-0 w-[80vw] md:w-[60vw] lg:w-[45vw] aspect-video md:aspect-video relative group snap-center rounded-sm border border-dashed border-white/20 flex items-center justify-center bg-white/[0.01]">
            <div className="text-center opacity-30">
                <span className="block text-2xl mb-2 font-light">+</span>
                <span className="text-[10px] uppercase tracking-widest">Incoming Data</span>
