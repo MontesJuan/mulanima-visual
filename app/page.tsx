@@ -577,32 +577,24 @@ export default function App() {
         }
       `}</style>
 
-      {/* HEADER LOGO */}
-      <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${scrolled || isMenuOpen ? 'py-4 bg-black/95 backdrop-blur-xl border-b border-white/5 opacity-100 translate-y-0' : 'opacity-0 -translate-y-10 pointer-events-none'}`}>
-        <div className="container mx-auto px-6 md:px-12 flex justify-center items-center">
-          <div
-            className="relative z-50 transition-transform duration-500 hover:scale-105 cursor-pointer"
-            onClick={() => scrollTo('home')}
-          >
-            <Logo small={true} />
-          </div>
+      {/* DYNAMIC SHRINKING HEADER WITH INTEGRATED 3D LOGO */}
+      <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-1000 ease-in-out flex flex-col items-center justify-center ${scrolled || isMenuOpen ? 'h-20 bg-black/90 backdrop-blur-xl border-b border-white/5' : 'h-[80vh] bg-transparent'}`}>
+        <div 
+          className={`relative z-50 transition-all duration-1000 ease-in-out cursor-pointer ${scrolled || isMenuOpen ? 'scale-[0.16] translate-y-0' : 'scale-100 translate-y-0'}`}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          <Logo small={scrolled && !isMenuOpen} />
         </div>
+        
+        {/* Navigation - subtle when high, clear when items are scrolled */}
+        <nav className={`absolute bottom-8 transition-opacity duration-700 ${scrolled ? 'opacity-0' : 'opacity-100'}`}>
+          <ul className="flex space-x-8 text-xs tracking-[0.3em] uppercase opacity-40">
+            <li>Portfolio</li>
+            <li>—</li>
+            <li>Estudio</li>
+          </ul>
+        </nav>
       </header>
-
-      {/* HERO SECTION - 3D LOGO CORE */}
-      <section id="home" className="relative h-[80vh] flex items-center justify-center overflow-hidden">
-        <div className={`z-30 relative transition-all duration-1000 ease-in-out ${scrolled ? 'opacity-0 -translate-y-48 scale-50 blur-2xl' : 'opacity-100 translate-y-0 scale-100 blur-0'} transform-gpu`}>
-           <Logo />
-        </div>
-        
-        {/* Abstract Cinematic Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/5 blur-[250px] rounded-full pointer-events-none" />
-        
-        {/* Indicator to Scroll */}
-        <div className={`absolute bottom-6 left-1/2 -translate-x-1/2 transition-opacity duration-700 ${scrolled ? 'opacity-0' : 'opacity-100'}`}>
-          <div className="w-px h-12 bg-gradient-to-b from-white/30 to-transparent animate-pulse" />
-        </div>
-      </section>
 
       {/* WORK / SLIDER SECTION */}
       <section id="work-slider">
