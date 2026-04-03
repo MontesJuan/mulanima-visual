@@ -19,26 +19,39 @@ export default function JFMScroll() {
   useEffect(() => {
     // Preload de imágenes
     const loadImages = async () => {
-      const loadedImages: HTMLImageElement[] = [];
       const totalFrames = 300;
+      const loadedImages: HTMLImageElement[] = new Array(totalFrames);
+      const promises: Promise<boolean>[] = [];
       
       for (let i = 0; i < totalFrames; i++) {
-        const img = new Image();
-        // Cargamos los frames exportados a WebP
-        const padded = String(i + 1).padStart(3, '0');
-        img.src = `/sequence/ezgif-frame-${padded}.webp`; 
-        
-        await new Promise((resolve) => {
-          img.onload = () => resolve(true);
+        const promise = new Promise<boolean>((resolve) => {
+          const img = new Image();
+          const padded = String(i + 1).padStart(3, '0');
+          img.src = `/sequence/ezgif-frame-${padded}.webp`; 
+          
+          img.onload = () => {
+            loadedImages[i] = img;
+            resolve(true);
+          };
           img.onerror = () => {
-             // Fallback al png original por si el usuario aún no actualizó
+             // Fallback
              img.src = `/sequence/ezgif-frame-${padded}.png`;
-             img.onload = () => resolve(true);
-             img.onerror = () => resolve(false); // resolve anyway to avoid hanging
+             img.onload = () => {
+               loadedImages[i] = img;
+               resolve(true);
+             };
+             img.onerror = () => {
+               loadedImages[i] = img; // Push whatever we have or leave it empty? Let's push it so index matches.
+               resolve(false); 
+             };
           };
         });
-        loadedImages.push(img);
+        promises.push(promise);
       }
+      
+      await Promise.all(promises);
+      
+      // Filter out any completely failed loads if needed, but keeping index parity is good.
       setImages(loadedImages);
       setLoaded(true);
     };
