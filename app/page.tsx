@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 
 import { SplineScene } from '../components/SplineScene';
-import SplineScroll from '../components/SplineScroll';
+import JFMScroll from '../components/JFMScroll';
 
 // --- DATA MOCKS ---
 
@@ -497,16 +497,11 @@ const HeroSlider = () => {
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isPastIntro, setIsPastIntro] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-      setIsPastIntro(window.scrollY > window.innerHeight * 3.7);
-    };
-    handleScroll(); // init exactly on mount
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -583,13 +578,11 @@ export default function App() {
         }
       `}</style>
 
-      {/* 3D SPLINE SCROLLYTELLING SEQUENCE */}
-      <SplineScroll />
+      {/* JFM SCROLLYTELLING SEQUENCE */}
+      <JFMScroll />
 
       {/* DYNAMIC HEADER - INTEGRATES 3D LOGO & SHRINKS ON SCROLL */}
-      <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-[1000ms] ease-in-out flex flex-col items-center justify-center pointer-events-none ${
-        !isPastIntro ? 'opacity-0 -translate-y-[150%]' : 'opacity-100 translate-y-0'
-      } ${scrolled || isMenuOpen ? 'h-24 bg-black/90 backdrop-blur-md border-b border-white/5' : 'h-[75vh] bg-transparent'}`}>
+      <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-[800ms] ease-in-out flex flex-col items-center justify-center pointer-events-none ${scrolled || isMenuOpen ? 'h-24 bg-black/90 backdrop-blur-md border-b border-white/5' : 'h-[75vh] bg-transparent'}`}>
         
         {/* LOGO CONTAINER: Scales down proportionally to fit the shrinking header */}
         <div 
