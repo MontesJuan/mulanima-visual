@@ -17,6 +17,7 @@ import {
 
 import { SplineScene } from '../components/SplineScene';
 import JFMScroll from '../components/JFMScroll';
+import IAArtSlider from '../components/IAArtSlider';
 
 // --- DATA MOCKS ---
 
@@ -609,6 +610,9 @@ export default function App() {
       <div className="relative w-full min-h-screen">
         <HeroSlider />
       </div>
+
+      {/* IA ART EXPERIMENTS SLIDER */}
+      <IAArtSlider />
 
       {/* ABOUT SECTION (RE-DESIGNED) */}
       <section id="about" className="py-48 relative z-10 border-t border-white/5 bg-black">
