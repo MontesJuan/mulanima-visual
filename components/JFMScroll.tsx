@@ -24,18 +24,17 @@ export default function JFMScroll() {
       
       for (let i = 0; i < totalFrames; i++) {
         const img = new Image();
-        // Cargamos los frames exportados a WebP o los originales si es necesario
-        // Basado en el formato sugerido: "frame_{numero}.webp"
-        img.src = `/sequence/frame_${i}.webp`; 
+        // Cargamos los frames exportados a WebP
+        const padded = String(i + 1).padStart(3, '0');
+        img.src = `/sequence/ezgif-frame-${padded}.webp`; 
         
         await new Promise((resolve) => {
           img.onload = () => resolve(true);
           img.onerror = () => {
-            // Si no encuentra el webp, quizás están usando png y los numeraron con padding
-            // como ezgif-frame-001.png
-            img.src = `/sequence/ezgif-frame-${String(i+1).padStart(3, '0')}.png`;
-            img.onload = () => resolve(true);
-            img.onerror = () => resolve(false); // resolve anyway to avoid hanging
+             // Fallback al png original por si el usuario aún no actualizó
+             img.src = `/sequence/ezgif-frame-${padded}.png`;
+             img.onload = () => resolve(true);
+             img.onerror = () => resolve(false); // resolve anyway to avoid hanging
           };
         });
         loadedImages.push(img);
