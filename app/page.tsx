@@ -576,7 +576,7 @@ export default function App() {
       `}</style>
 
       {/* HEADER LOGO */}
-      <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${scrolled || isMenuOpen ? 'py-4 bg-black/50 backdrop-blur-xl border-b border-white/5 opacity-100' : 'py-8 opacity-0 pointer-events-none'}`}>
+      <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled || isMenuOpen ? 'py-4 bg-black/80 backdrop-blur-xl border-b border-white/5 opacity-100' : 'py-8 opacity-0 pointer-events-none'}`}>
         <div className="container mx-auto px-6 md:px-12 flex justify-center items-center">
           <div
             className="relative z-50 transition-transform duration-500 hover:scale-105 cursor-pointer"
@@ -589,7 +589,7 @@ export default function App() {
 
       {/* HERO SECTION - 3D LOGO CORE */}
       <section id="home" className="relative min-h-screen flex items-center justify-center pt-32 overflow-hidden">
-        <div className="z-20 transform hover:scale-110 transition-transform duration-1000">
+        <div className={`z-20 transition-all duration-1000 ${scrolled ? 'opacity-0 scale-90 blur-lg' : 'opacity-100 scale-100 blur-0'} transform hover:scale-110`}>
            <Logo />
         </div>
         
