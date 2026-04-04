@@ -689,8 +689,8 @@ export default function App() {
             
             {/* LOGOS */}
             <div className="flex flex-wrap gap-8 items-center lg:justify-end opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-              <img src="/logos/werner-herzog.png" alt="Werner Herzog Stiftung" className="h-16 w-auto object-contain" />
-              <img src="/logos/extatica.png" alt="Extática Cine" className="h-12 w-auto object-contain" />
+              <img src="/logos/werner-herzog-stiftung.png" alt="Werner Herzog Stiftung" className="h-16 w-auto object-contain" />
+              <img src="/logos/extatica-logo.gif" alt="Extática Cine" className="h-12 w-auto object-contain" />
             </div>
           </div>
         </div>
