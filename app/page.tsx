@@ -664,6 +664,35 @@ export default function App() {
             </div>
 
           </div>
+
+          {/* EXPERIENCIA WERNER HERZOG BANNER */}
+          <div className="mt-24 md:mt-32 pt-16 border-t border-white/5 flex flex-col lg:flex-row gap-12 items-start lg:items-center justify-between reveal-on-scroll">
+            <div className="space-y-4 max-w-2xl">
+              <span className="text-amber-500 font-medium tracking-[0.2em] uppercase text-xs">Selección Oficial</span>
+              <h3 className="text-2xl md:text-3xl font-light text-white tracking-tight leading-tight">
+                Seleccionado junto a 50 cineastas de 43 países para el Workshop de Werner Herzog.
+              </h3>
+              <p className="text-gray-400 font-light leading-relaxed text-sm">
+                Participación en un taller colaborativo e inmersivo bajo la tutoría de Werner Herzog, guiado por Extática Cine. Una experiencia que desafía las fronteras y busca una visión cruda y potente del mundo.
+              </p>
+              <div className="pt-4">
+                <a
+                  href="https://extaticacine.com/experiencia-wh-2026"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-white/50 hover:text-white transition-all duration-300 tracking-widest uppercase text-[10px] font-bold"
+                >
+                  Ver Experiencia <ArrowUpRight size={14} />
+                </a>
+              </div>
+            </div>
+            
+            {/* LOGOS */}
+            <div className="flex flex-wrap gap-8 items-center lg:justify-end opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+              <img src="/logos/werner-herzog.png" alt="Werner Herzog Stiftung" className="h-16 w-auto object-contain" />
+              <img src="/logos/extatica.png" alt="Extática Cine" className="h-12 w-auto object-contain" />
+            </div>
+          </div>
         </div>
       </section>
 
