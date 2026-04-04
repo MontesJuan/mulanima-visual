@@ -107,6 +107,9 @@ export default function JFMScroll() {
           className="w-full h-full object-contain mix-blend-multiply"
         />
       </div>
+      
+      {/* Transición suave hacia el negro de la web para eliminar el corte blanco inferior */}
+      <div className="absolute bottom-0 left-0 w-full h-[80vh] bg-gradient-to-b from-white/0 to-[#050505] pointer-events-none z-20" />
     </div>
   );
 }

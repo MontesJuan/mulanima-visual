@@ -43,6 +43,16 @@ const heroProjects: Project[] = [
     videoLink: "https://www.youtube.com/watch?v=22ufVCUlDo4"
   },
   {
+    id: 19,
+    client: "RANCHO E` CUERO",
+    title: "RANCHO E` CUERO",
+    director: "",
+    year: "2025",
+    category: "Asist. de Dirección, Postproducción",
+    image: "https://img.youtube.com/vi/qwTHI4ry_mU/maxresdefault.jpg",
+    videoLink: "https://www.youtube.com/watch?v=qwTHI4ry_mU"
+  },
+  {
     id: 1,
     client: "SAN JUAN TURISMO",
     title: "INVIERNO SAN JUAN 2025",
@@ -460,7 +470,7 @@ const HeroSlider = () => {
                 <div className="overflow-hidden">
                   <div className="flex flex-col md:flex-row gap-2 md:gap-12 text-[10px] md:text-sm font-medium uppercase text-gray-300 transform translate-y-[150%] group-hover:translate-y-0 transition-transform duration-700 delay-300 tracking-widest mix-blend-difference">
                     <span>{project.client}</span>
-                    <span>DIR. {project.director}</span>
+                    {project.director && <span>DIR. {project.director}</span>}
                   </div>
                 </div>
               </div>
